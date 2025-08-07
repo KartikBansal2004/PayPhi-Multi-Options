@@ -23,7 +23,7 @@ exports.createOrder = async (req, res) => {
     customerEmailID: "",
     transactionType: "SALE",
     txnDate: getCurrentYmdHis(),
-    returnURL: "http://localhost:3000/jioPGCallback",
+    returnURL: "http://13.235.80.49:3000/jioPGCallback",
     customerMobileNo: "",
     addlParam1: "RES123456789",
     addlParam2: "",
