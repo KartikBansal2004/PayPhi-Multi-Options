@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Merchandise Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .product {
+      margin: 15px;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛍️ Choose Your Merchandise</h1>
+
+  <div class="product">
+    <h2>T-Shirt – ₹399 + GST (18%)</h2>
+    <button onclick="pay(399)">Buy Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Hoodie – ₹499 + GST (18%)</h2>
+    <button onclick="pay(499)">Buy Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Cap – ₹199 + GST (18%)</h2>
+    <button onclick="pay(199)">Buy Now</button>
+  </div>
+
+  <script>
+    async function pay(amount) {
+      try {
+        const res = await fetch("/create-order", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount }),
+        });
+
+        const data = await res.json();
+
+        if (data.redirectUrl) {
+          window.open(data.redirectUrl, "_blank");
+        } else {
+          alert("❌ Failed to get payment URL from server.");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("⚠️ Error occurred during payment.");
+      }
+    }
+  </script>
+</body>
+</html>

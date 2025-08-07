@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Transaction Result</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .success {
+        color: green;
+      }
+      .fail {
+        color: red;
+      }
+      .info-box {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="<%= statusClass %>"><%= statusMessage %></h1>
+    <div class="info-box">
+      <p><strong>Transaction ID:</strong> <%= merchantTxnNo %></p>
+      <p><strong>Amount:</strong> ₹<%= amount %></p>
+      <p><strong>Response Code:</strong> <%= responseCode %></p>
+      <p><strong>Message:</strong> <%= responseMessage %></p>
+      <p><strong>Status:</strong> <%= status %></p>
+    </div>
+    <a href="/" class="btn-home"><button>🏠 Return to Home</button></a>
+  </body>
+</html>
