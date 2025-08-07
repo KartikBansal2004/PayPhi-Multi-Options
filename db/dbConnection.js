@@ -4,9 +4,9 @@ const mysql = require("mysql2");
 
 const db = mysql.createConnection({
 host: "localhost",
-user: "root",
-password: "ppc8r8822",
-database: "payment_gateway"
+user: "admin",                       //root
+password: "Kart!kBnsal2025",        //ppc8r8822
+database: "payphi_multi_options"   //payment_gateway
 });
 
 db.connect((err) => {
